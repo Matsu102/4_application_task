@@ -11,16 +11,17 @@
 <% end %>
 
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
+
   <div class="form-box">
-    <p class="form">Title<br>
-    <%= f.text_field :title %></p>
+    <lavel for="form-title">Title<br></lavel>
+    <%= f.text_field :title %>
   </div>
   <div class="form-box">
-  <p class="form">Body<br>
-  <%= f.text_area :body %></p>
+  <lavel for="form">Body<br></lavel>
+  <%= f.text_area :body %>
   </div>
 
   <div class="form-box">
-  <p class="form"><%= f.submit 'Create Book' %></p>
+  <%= f.submit 'Create Book' %>
   </div>
 <% end %>

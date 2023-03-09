@@ -25,3 +25,30 @@
   <% end %>
 </table>
 
+
+<h1 class="books-h2">New book</h1>
+<% if @book.errors.any? %>
+  <div class="errors-winsow">
+  <div class="errors"><%= @book.errors.count %> errors prohibited this book from being saved:</div>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @book, url: '/books', method: :post do |f| %>
+  <div class="form-box">
+    <lavel for="form-title">Title<br></lavel>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-box">
+  <lavel for="form">Body<br></lavel>
+  <%= f.text_area :body %>
+  </div>
+
+  <div class="form-box">
+  <%= f.submit 'Create Book' %>
+  </div>
+<% end %>
